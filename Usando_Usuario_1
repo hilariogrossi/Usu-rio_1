@@ -1,0 +1,7 @@
+from Usuário_1 import Usuário
+
+usuário_1 = Usuário('Gabriel', 22)
+usuário_1.salvo()
+usuário_2 = Usuário('Pedro', 20)
+usuário_2.salvo()
+print(Usuário.todos())
