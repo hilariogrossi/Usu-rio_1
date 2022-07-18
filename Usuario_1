@@ -1,0 +1,32 @@
+class Usuário:
+
+    sequência = 0
+    objetos = []
+
+    def __init__(self, nome, idade):
+        self.id = None
+        self.nome = nome
+        self.idade = idade
+
+    def salvo(self):
+        self.__class__.sequência += 1
+        self.id = self.__class__.sequência
+        self.__class__.objetos.append(self)
+
+    def __str__(self):
+        return self.nome
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}: {self.id} -> {self.nome} - {self.idade} anos'
+
+    @classmethod
+    def todos(cls):
+        return cls.objetos
+
+
+if __name__ == '__main__':
+    usuário_1 = Usuário('Hilário', 51)
+    usuário_1.salvo()
+    usuário_2 = Usuário('Patrícia', 54)
+    usuário_2.salvo()
+    print(Usuário.todos())
